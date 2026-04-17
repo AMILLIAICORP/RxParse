@@ -10,16 +10,14 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#f8fafc;color:#0f172a;font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;}
 nav{background:white;border-bottom:1px solid #e2e8f0;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.logo{font-size:20px;font-weight:700;color:#0f172a;}
-.logo span{color:#0ea5e9;}
+.logo{font-size:20px;font-weight:700;color:#0f172a;}.logo span{color:#0ea5e9;}
 .logo-sub{font-size:11px;font-weight:400;color:#94a3b8;margin-left:8px;font-family:'JetBrains Mono',monospace;}
 .nav-links{display:flex;align-items:center;gap:2rem;}
 .nav-links a{color:#64748b;text-decoration:none;font-size:14px;font-weight:500;}
-.nav-links a:hover{color:#0f172a;}
-.nav-cta{background:#0ea5e9;color:white;padding:8px 20px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;}
+.nav-cta{background:#0ea5e9;color:white!important;padding:8px 20px;border-radius:6px;font-size:14px;font-weight:600;}
 .hero{text-align:center;padding:5rem 2rem 3rem;max-width:800px;margin:0 auto;}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:#f0f9ff;border:1px solid #bae6fd;color:#0284c7;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace;}
-.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;color:#0f172a;}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;}
 .hero h1 span{color:#0ea5e9;}
 .hero p{font-size:18px;color:#64748b;max-width:560px;margin:0 auto 2.5rem;line-height:1.7;}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e2e8f0;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;max-width:600px;margin:0 auto 4rem;}
@@ -37,8 +35,7 @@ nav{background:white;border-bottom:1px solid #e2e8f0;padding:0 2rem;height:64px;
 .tab-content{display:none;padding:0 1.5rem 1.5rem;}
 .tab-content.active{display:block;}
 .upload-zone{border:2px dashed #e2e8f0;border-radius:8px;padding:3rem;text-align:center;cursor:pointer;transition:all 0.2s;}
-.upload-zone:hover{border-color:#0ea5e9;background:#f0f9ff;}
-.upload-zone.dragover{border-color:#0ea5e9;background:#f0f9ff;}
+.upload-zone:hover,.upload-zone.dragover{border-color:#0ea5e9;background:#f0f9ff;}
 .upload-icon{font-size:2.5rem;margin-bottom:1rem;}
 .upload-text{font-size:15px;font-weight:500;color:#0f172a;margin-bottom:4px;}
 .upload-sub{font-size:13px;color:#94a3b8;}
@@ -49,16 +46,13 @@ textarea::placeholder{color:#cbd5e1;}
 .btn{background:#0ea5e9;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;width:100%;margin-top:1rem;font-family:'Inter',sans-serif;transition:background 0.2s;}
 .btn:hover{background:#0284c7;}
 .btn:disabled{background:#94a3b8;cursor:not-allowed;}
-.btn-loading{display:flex;align-items:center;justify-content:center;gap:8px;}
-.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;}
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;display:inline-block;}
 @keyframes spin{to{transform:rotate(360deg);}}
 </style>
 </head>
 <body>
 <nav>
-  <div>
-    <span class="logo">Rx<span>Parse</span><span class="logo-sub">AI Prescription Parser</span></span>
-  </div>
+  <div><span class="logo">Rx<span>Parse</span><span class="logo-sub">AI Prescription Parser</span></span></div>
   <div class="nav-links">
     <a href="#how">How it works</a>
     <a href="#pricing">Pricing</a>
@@ -66,7 +60,6 @@ textarea::placeholder{color:#cbd5e1;}
     <a href="mailto:amilliaicorp@gmail.com" class="nav-cta">Request demo</a>
   </div>
 </nav>
-
 <div class="hero">
   <div class="hero-badge">⚕ HIPAA-Conscious · AI-Assisted · Human-Approved</div>
   <h1>Parse prescriptions in<br><span>3 seconds</span> not 3 minutes</h1>
@@ -77,7 +70,6 @@ textarea::placeholder{color:#cbd5e1;}
     <div class="stat"><div class="stat-val">90%</div><div class="stat-label">Time saved</div></div>
   </div>
 </div>
-
 <div class="main">
   <div class="card">
     <div class="card-header">
@@ -88,20 +80,10 @@ textarea::placeholder{color:#cbd5e1;}
       <button class="tab active" onclick="switchTab('text',this)">Paste text</button>
       <button class="tab" onclick="switchTab('image',this)">Upload image</button>
     </div>
-
     <div class="tab-content active" id="tab-text">
-      <textarea id="rxText" placeholder="Paste prescription text here...
-
-Example:
-Patient: John Smith DOB: 03/15/1978
-Rx: Lisinopril 10mg
-Qty: 90 tablets | Refills: 3
-Sig: Take 1 tablet by mouth once daily
-Dr. Sarah Johnson DEA: BJ1234563
-Date: 04/15/2026"></textarea>
+      <textarea id="rxText" placeholder="Paste prescription text here..."></textarea>
       <button class="btn" onclick="parseText()" id="btnText">Parse prescription →</button>
     </div>
-
     <div class="tab-content" id="tab-image">
       <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
         <div class="upload-icon">📄</div>
@@ -113,6 +95,134 @@ Date: 04/15/2026"></textarea>
       <button class="btn" onclick="parseImage()" id="btnImage" style="display:none">Parse prescription →</button>
     </div>
   </div>
-
   <div id="resultCard" style="display:none"></div>
 </div>
+<div style="background:white;border-top:1px solid #e2e8f0;padding:5rem 2rem;" id="how">
+  <div style="max-width:900px;margin:0 auto;">
+    <h2 style="font-size:28px;font-weight:700;text-align:center;margin-bottom:3rem;">How it works</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
+      <div style="text-align:center;"><div style="font-size:2.5rem;margin-bottom:1rem;">📠</div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#0ea5e9;margin-bottom:8px;font-weight:600;">01 — RECEIVE</div><h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Fax comes in</h4><p style="font-size:13px;color:#64748b;line-height:1.7;">Prescription arrives by fax, scan, or photo. Tech uploads it to RxParse in one click.</p></div>
+      <div style="text-align:center;"><div style="font-size:2.5rem;margin-bottom:1rem;">⚡</div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#0ea5e9;margin-bottom:8px;font-weight:600;">02 — EXTRACT</div><h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">AI extracts every field</h4><p style="font-size:13px;color:#64748b;line-height:1.7;">Patient, medication, prescriber, dosage, refills — all extracted in under 5 seconds.</p></div>
+      <div style="text-align:center;"><div style="font-size:2.5rem;margin-bottom:1rem;">✅</div><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#0ea5e9;margin-bottom:8px;font-weight:600;">03 — REVIEW</div><h4 style="font-size:16px;font-weight:600;margin-bottom:8px;">Pharmacist approves</h4><p style="font-size:13px;color:#64748b;line-height:1.7;">Clean prescriptions ready instantly. Flagged ones go to pharmacist review. Human always in the loop.</p></div>
+    </div>
+  </div>
+</div>
+<div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:5rem 2rem;" id="pricing">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <h2 style="font-size:28px;font-weight:700;margin-bottom:8px;">Simple pricing</h2>
+    <p style="color:#64748b;margin-bottom:3rem;">Save thousands in labor costs every month</p>
+    <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:2.5rem;border-top:4px solid #0ea5e9;">
+      <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#0ea5e9;font-weight:600;margin-bottom:12px;">PHARMACY PLAN</div>
+      <div style="font-size:3rem;font-weight:700;color:#0f172a;margin-bottom:4px;">$600<span style="font-size:16px;color:#94a3b8;font-weight:400">/month</span></div>
+      <p style="color:#64748b;font-size:14px;margin-bottom:2rem;">You save $1,800-$2,400/month in labor. Net benefit: $1,200+/month.</p>
+      <ul style="list-style:none;text-align:left;display:flex;flex-direction:column;gap:12px;margin-bottom:2rem;">
+        <li style="display:flex;gap:10px;font-size:14px;"><span style="color:#16a34a;font-weight:700;">✓</span>Unlimited prescription parsing</li>
+        <li style="display:flex;gap:10px;font-size:14px;"><span style="color:#16a34a;font-weight:700;">✓</span>Image and text input</li>
+        <li style="display:flex;gap:10px;font-size:14px;"><span style="color:#16a34a;font-weight:700;">✓</span>Pharmacist review queue</li>
+        <li style="display:flex;gap:10px;font-size:14px;"><span style="color:#16a34a;font-weight:700;">✓</span>Full audit trail</li>
+        <li style="display:flex;gap:10px;font-size:14px;"><span style="color:#16a34a;font-weight:700;">✓</span>Verified by Auctoritas</li>
+        <li style="display:flex;gap:10px;font-size:14px;"><span style="color:#16a34a;font-weight:700;">✓</span>Setup and onboarding included</li>
+      </ul>
+      <a href="mailto:amilliaicorp@gmail.com" style="display:block;background:#0ea5e9;color:white;padding:14px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;">Request a free demo →</a>
+    </div>
+  </div>
+</div>
+<footer style="background:white;border-top:1px solid #e2e8f0;padding:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+  <span style="font-size:14px;font-weight:700;color:#0f172a;">Rx<span style="color:#0ea5e9;">Parse</span></span>
+  <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+    <a href="https://auctoritas.cc" target="_blank" style="font-size:12px;color:#94a3b8;text-decoration:none;">Powered by Auctoritas</a>
+    <a href="https://amilliaicorp.com" target="_blank" style="font-size:12px;color:#94a3b8;text-decoration:none;">AMILLI AI, CORP</a>
+    <a href="/terms" style="font-size:12px;color:#94a3b8;text-decoration:none;">Terms of Service</a>
+    <a href="/privacy" style="font-size:12px;color:#94a3b8;text-decoration:none;">Privacy Policy</a>
+    <a href="/baa" style="font-size:12px;color:#94a3b8;text-decoration:none;">BAA</a>
+    <a href="mailto:amilliaicorp@gmail.com" style="font-size:12px;color:#94a3b8;text-decoration:none;">Contact</a>
+  </div>
+  <span style="font-size:12px;color:#94a3b8;">© 2026 AMILLI AI, CORP</span>
+</footer>
+<script>
+let selectedFile = null
+function switchTab(tab,btn){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+tab).classList.add('active');}
+function handleDragOver(e){e.preventDefault();document.getElementById('uploadZone').classList.add('dragover');}
+function handleDragLeave(){document.getElementById('uploadZone').classList.remove('dragover');}
+function handleDrop(e){e.preventDefault();document.getElementById('uploadZone').classList.remove('dragover');const file=e.dataTransfer.files[0];if(file)setFile(file);}
+function handleFileSelect(e){if(e.target.files[0])setFile(e.target.files[0]);}
+function setFile(file){selectedFile=file;document.getElementById('filePreview').style.display='block';document.getElementById('filePreview').textContent='📄 '+file.name+' ('+(file.size/1024).toFixed(1)+' KB)';document.getElementById('btnImage').style.display='block';}
+async function parseText(){
+  const text=document.getElementById('rxText').value.trim();
+  if(!text){alert('Please paste prescription text first.');return;}
+  const btn=document.getElementById('btnText');
+  btn.innerHTML='<span class="spinner"></span> Parsing...';btn.disabled=true;
+  try{
+    const res=await fetch('/parse/text',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
+    const data=await res.json();
+    if(!res.ok)throw new Error(data.error);
+    showResult(data.data);
+  }catch(err){alert('Error: '+err.message);}
+  finally{btn.innerHTML='Parse prescription →';btn.disabled=false;}
+}
+async function parseImage(){
+  if(!selectedFile){alert('Please select a file first.');return;}
+  const btn=document.getElementById('btnImage');
+  btn.innerHTML='<span class="spinner"></span> Parsing...';btn.disabled=true;
+  try{
+    const formData=new FormData();formData.append('file',selectedFile);
+    const res=await fetch('/parse/image',{method:'POST',body:formData});
+    const data=await res.json();
+    if(!res.ok)throw new Error(data.error);
+    showResult(data.data);
+  }catch(err){alert('Error: '+err.message);}
+  finally{btn.innerHTML='Parse prescription →';btn.disabled=false;}
+}
+function showResult(data){
+  const sc={clean:'#16a34a',review:'#d97706',urgent:'#dc2626'};
+  const sb={clean:'#f0fdf4',review:'#fffbeb',urgent:'#fef2f2'};
+  const sbd={clean:'#bbf7d0',review:'#fcd34d',urgent:'#fecaca'};
+  const cc={high:'#16a34a',medium:'#d97706',low:'#dc2626'};
+  const status=data.status||'review';
+  const confidence=data.confidence||'medium';
+  const html=`<div class="card">
+    <div class="card-header" style="background:${sb[status]};border-color:${sbd[status]};">
+      <span class="card-title">Parsed prescription</span>
+      <span style="font-size:11px;font-family:'JetBrains Mono',monospace;background:${sb[status]};color:${sc[status]};border:1px solid ${sbd[status]};padding:2px 10px;border-radius:4px;font-weight:700;text-transform:uppercase;">${status==='clean'?'✓ Clean':status==='urgent'?'⚠ Urgent':'⚡ Review'}</span>
+      <span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:${cc[confidence]};margin-left:auto;">Confidence: ${confidence}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#f1f5f9;">
+      <div style="background:white;padding:1.25rem;">
+        <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#94a3b8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-weight:600;">Patient</div>
+        ${field('Name',data.patient?.name)}${field('DOB',data.patient?.dob)}${field('Phone',data.patient?.phone)}${field('Address',data.patient?.address)}
+      </div>
+      <div style="background:white;padding:1.25rem;">
+        <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#94a3b8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-weight:600;">Medication</div>
+        ${field('Drug',data.medication?.name)}${field('Strength',data.medication?.strength)}${field('Form',data.medication?.dosage_form)}${field('Quantity',data.medication?.quantity)}${field('Days supply',data.medication?.days_supply)}${field('Refills',data.medication?.refills)}${field('Directions',data.medication?.directions)}
+      </div>
+      <div style="background:white;padding:1.25rem;">
+        <div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#94a3b8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-weight:600;">Prescriber</div>
+        ${field('Name',data.prescriber?.name)}${field('NPI',data.prescriber?.npi)}${field('DEA',data.prescriber?.dea)}${field('Phone',data.prescriber?.phone)}
+        <div style="margin-top:16px;"><div style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#94a3b8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-weight:600;">Rx Info</div>
+        ${field('Date written',data.prescription?.date_written)}${field('Controlled',data.prescription?.controlled_substance?'⚠ YES':'No')}${field('Brand required',data.prescription?.brand_required?'YES':'No')}</div>
+      </div>
+    </div>
+    ${data.flags&&data.flags.length?`<div style="padding:1.25rem;background:#fffbeb;border-top:1px solid #fcd34d;"><div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#d97706;font-weight:700;text-transform:uppercase;margin-bottom:8px;">⚡ Flags for review</div>${data.flags.map(f=>`<div style="font-size:13px;color:#92400e;display:flex;gap:8px;margin-bottom:4px;"><span>▲</span>${f}</div>`).join('')}</div>`:''}
+    <div style="padding:1.25rem;border-top:1px solid #f1f5f9;display:flex;gap:8px;">
+      <button onclick="copyResult()" style="background:#f8fafc;border:1px solid #e2e8f0;color:#0f172a;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;">Copy all fields</button>
+      <button onclick="document.getElementById('resultCard').style.display='none'" style="background:#f8fafc;border:1px solid #e2e8f0;color:#64748b;padding:8px 16px;border-radius:6px;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;">Clear</button>
+    </div>
+  </div>`;
+  document.getElementById('resultCard').innerHTML=html;
+  document.getElementById('resultCard').style.display='block';
+  document.getElementById('resultCard').scrollIntoView({behavior:'smooth'});
+  window._lastResult=data;
+}
+function field(label,value){
+  if(!value)return `<div style="margin-bottom:8px;"><div style="font-size:11px;color:#94a3b8;font-family:'JetBrains Mono',monospace;">${label}</div><div style="font-size:13px;color:#cbd5e1;">—</div></div>`;
+  return `<div style="margin-bottom:8px;"><div style="font-size:11px;color:#94a3b8;font-family:'JetBrains Mono',monospace;">${label}</div><div style="font-size:13px;font-weight:500;color:#0f172a;">${value}</div></div>`;
+}
+function copyResult(){
+  if(!window._lastResult)return;
+  const d=window._lastResult;
+  const text=`PATIENT\nName: ${d.patient?.name||'—'}\nDOB: ${d.patient?.dob||'—'}\nPhone: ${d.patient?.phone||'—'}\n\nMEDICATION\nDrug: ${d.medication?.name||'—'}\nStrength: ${d.medication?.strength||'—'}\nQuantity: ${d.medication?.quantity||'—'}\nRefills: ${d.medication?.refills||'—'}\nDirections: ${d.medication?.directions||'—'}\n\nPRESCRIBER\nName: ${d.prescriber?.name||'—'}\nDEA: ${d.prescriber?.dea||'—'}\nNPI: ${d.prescriber?.npi||'—'}\n\nDate Written: ${d.prescription?.date_written||'—'}\nControlled: ${d.prescription?.controlled_substance?'YES':'No'}`;
+  navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard!'));
+}
+</script>
+</body>
+</html>
