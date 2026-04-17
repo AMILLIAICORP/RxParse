@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/terms",
+      "dest": "server.js"
+    },
+    {
+      "src": "/privacy",
+      "dest": "server.js"
+    },
+    {
+      "src": "/baa",
+      "dest": "server.js"
+    },
+    {
+      "src": "/parse/text",
+      "dest": "server.js"
+    },
+    {
+      "src": "/parse/image",
+      "dest": "server.js"
+    },
+    {
+      "src": "/health",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ]
+}
